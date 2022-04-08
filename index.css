@@ -1,0 +1,44 @@
+
+body {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Staatliches', sans-serif;
+    background-color:Black;
+    color: white;
+    margin: 0px;
+    letter-spacing: 0.1em;
+  }
+
+  h1 {
+    margin: auto;
+    font-size:5rem;
+    transition: all 1s;
+  }
+
+  h1:hover {
+    filter:blur(6px);
+    font-size:7rem;
+    letter-spacing: 0.3em;
+    transform:scale(1.4);
+    opacity:0.00;
+  }
+  
+  .glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 10s ease-in-out infinite alternate;
+    -moz-animation: glow 10s ease-in-out infinite alternate;
+    animation: glow 10s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 0px #fff;
+    }
+    to {
+      text-shadow: 0 0 10px #fff;
+    }
+  }
