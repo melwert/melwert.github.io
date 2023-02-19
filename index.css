@@ -1,43 +1,105 @@
+* {
+	margin: 0;
+	padding: 0;
+}
 
 body {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: 'Staatliches', sans-serif;
-    background-color:Black;
-    color: white;
-    margin: 0px;
-    letter-spacing: 0.1em;
-  }
+	font-family: 'Staatliches', sans-serif;
+	font-weight: 600;
+	color: #343434;
+}
 
-  h1 {
-    margin: auto;
-    transition: all 1s;
-  }
+.text-box {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100vw;
+}
 
-  h1:hover {
-    filter:blur(6px);
-    font-size:5vw;
-    letter-spacing: 0.3em;
-    transform:scale(1.4);
-    opacity:0.00;
-  }
-  
-  .glow {
-    font-size: 5vw;
-    color: #fff;
-    text-align: center;
-    -webkit-animation: glow 10s ease-in-out infinite alternate;
-    -moz-animation: glow 10s ease-in-out infinite alternate;
-    animation: glow 10s ease-in-out infinite alternate;
-  }
-  
-  @-webkit-keyframes glow {
-    from {
-      text-shadow: 0 0 0px #fff;
-    }
-    to {
-      text-shadow: 0 0 10px #fff;
-    }
-  }
+.glow-box {
+	position: absolute;
+	z-index: 200;
+}
+
+.glow-label {
+	font-size: 5vw;
+	color: #fff;
+	text-align: center;
+	-webkit-animation: glow 10s ease-in-out infinite alternate;
+	-moz-animation: glow 10s ease-in-out infinite alternate;
+	animation: glow 10s ease-in-out infinite alternate;
+}
+
+
+.glow-label {
+	margin: auto;
+	transition: all 1s;
+}
+
+.glow-label:hover {
+	filter: blur(6px);
+	font-size: 5vw;
+	letter-spacing: 0.3em;
+	transform: scale(1.4);
+	opacity: 0.00;
+}
+
+@-webkit-keyframes glow {
+	from {
+		text-shadow: 0 0 0px #fff;
+	}
+
+	to {
+		text-shadow: 0 0 5px #fff;
+	}
+}
+
+.shadow-section {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	width: 100vw;
+	background-image: linear-gradient(-225deg, #1A1A1A, #343434);
+	z-index: 100;
+}
+
+.shadow-section .shadow-label {
+	--x-shadow: 0;
+	--y-shadow: 0;
+	--x: 50%;
+	--y: 50%;
+	font-size: 6vw;
+	transition: all 0.2s ease;
+	position: relative;
+	padding: 2rem;
+}
+
+.shadow-section .shadow-label {
+	transition: all 0.2s ease;
+	text-shadow: var(--x-shadow) var(--y-shadow) 10px #1A1A1A;
+	opacity: 0.00;
+}
+
+.shadow-section .shadow-label p {
+	position: absolute;
+	top: 2rem;
+	left: 2rem;
+	background-image: radial-gradient(circle closest-side, rgba(255, 255, 255, 0.05), transparent);
+	background-position: var(--x) var(--y);
+	background-repeat: no-repeat;
+	text-shadow: none;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	transition: all 0.1s ease;
+}
+
+.glow-box:hover ~ .shadow-section .shadow-label {
+	transition: opacity 2.5s linear;
+	transition-delay: 1s;
+	opacity: 1.00;
+}
